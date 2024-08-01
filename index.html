@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Semitone Difference Game</h1>
+    </div>
+
+    <div class="container">
+      <div class="box" id="box1"></div>
+      <div class="box" id="box2"></div>
+    </div>
+    <div class="container">
+      <button id="randomize" class="check" type="button">Randomize</button>
+      <button id="giveUp" class="check" type="button">Give up</button>
+      <button id="restart" class="check" type="button">Restart</button>
+    </div>
+    <div class="message" id="displayMessage"></div>
+    <div id="streak" class="streak"></div>
+    <div class="container">
+      <form action="" id="form">
+        <input
+          id="answer"
+          class="answer"
+          type="number"
+          placeholder=""
+          max="12"
+          min="0"
+          required
+        />
+        <button id="check" class="check" type="submit">Check Answer</button>
+      </form>
+    </div>
+    <div id="giveUpMessage" class="gaveUp"></div>
+    <div id="semitone-array" class="semitone">
+      <div class="note"><span>A</span></div>
+      <div class="note"
+        ><span><span>A#</span>/<span>Bb</span></span></div
+      >
+      <div class="note"><span>B</span></div>
+      <div class="note"><span>C</span></div>
+      <div class="note"
+        ><span><span>C#</span>/<span>Db</span></span></div
+      >
+      <div class="note"><span>D</span></div>
+      <div class="note"
+        ><span><span>D#</span>/<span>Eb</span></span></div
+      >
+      <div class="note"><span>E</span></div>
+      <div class="note"><span>F</span></div>
+      <div class="note"
+        ><span><span>F#</span>/<span>Gb</span></span></div
+      >
+      <div class="note"><span>G</span></div>
+      <div class="note"
+        ><span><span>G#</span>/<span>Ab</span></span></div
+      >
+    </div>
+
+    <script type="module" src="./dist/bundle.js"></script>
+  </body>
+</html>
