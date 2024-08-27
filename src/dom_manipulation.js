@@ -56,11 +56,23 @@ const answerListener = () => {
     const isCorrect = buddy.checkAnswer(answer);
     displayMessage(isCorrect);
 
+    const answerSound =
+      typeof Audio !== "undefined" && isCorrect
+        ? new Audio("../Music & Sounds/correct-ans.mp3")
+        : typeof Audio !== "undefined" && !isCorrect
+        ? new Audio("../Music & Sounds/incorrect-ans.mp3")
+        : null;
+
     if (isCorrect) {
       showSemitoneArray();
       elements.checkAnswer(document).disabled = true;
       elements.answer(document).disabled = true;
     }
+
+    if (answerSound) {
+      answerSound.play();
+    }
+
     elements.streak(document).textContent = `Streak: ${buddy.streak}`;
   });
 };
@@ -79,6 +91,15 @@ const giveUpListener = () => {
     giveUpSemitoneArray();
     showSemitoneArray();
     correctDistanceMessage();
+
+    const gameOverSound =
+      typeof Audio !== "undefined"
+        ? new Audio("../Music & Sounds/game-over.mp3")
+        : null;
+
+    if (gameOverSound) {
+      gameOverSound.play();
+    }
   });
 };
 
@@ -105,6 +126,15 @@ const restartListener = () => {
     removesHighlight();
     removesHighlight();
     clearMessage();
+
+    const restartSound =
+      typeof Audio !== "undefined"
+        ? new Audio("../Music & Sounds/game-start.mp3")
+        : null;
+
+    if (restartSound) {
+      restartSound.play();
+    }
   });
 };
 

@@ -36,6 +36,7 @@ function displayMessage(isCorrect) {
     elements.displayMessage(document).textContent = "Wrong!";
     elements.checkAnswer(document).disabled = true;
     elements.answer(document).disabled = true;
+
     setTimeout(() => {
       clearMessage();
       elements.displayMessage(document).classList.remove("incorrect");
@@ -149,8 +150,18 @@ function correctDistanceMessage(distance) {
 }
 
 function spinRandomNotes(buddy) {
+  const spinSound =
+    typeof Audio !== "undefined"
+      ? new Audio("../Music & Sounds/spinning-reel.mp3")
+      : null;
+
   const spinCount = 15;
   let currentSpin = 0;
+
+  if (spinSound) {
+    spinSound.currentTime = 2;
+    spinSound.play();
+  }
 
   const interval = setInterval(() => {
     buddy.randomizeCurrentNotes();
@@ -162,6 +173,11 @@ function spinRandomNotes(buddy) {
       clearInterval(interval);
       buddy.randomizeCurrentNotes();
       displayRandomNotes(buddy);
+
+      if (spinSound) {
+        spinSound.pause();
+        spinSound.currentTime = 2;
+      }
     }
   }, 100);
 }

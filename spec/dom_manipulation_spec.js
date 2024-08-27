@@ -48,20 +48,24 @@ describe("Dom Manipulation", () => {
 
     it("should be different notes after clicking randomize", () => {
       elements.randomize(document).click();
-      jasmine.clock().tick(1000);
+      jasmine.clock().tick(1100);
+
       let firstNoteAfter = elements.box1(document).textContent;
       let secondNoteAfter = elements.box2(document).textContent;
+
       if (
         firstNoteBefore === firstNoteAfter &&
         secondNoteBefore === secondNoteAfter
       ) {
         elements.randomize(document).click();
+        jasmine.clock().tick(1000);
+
         firstNoteAfter = elements.box1(document).textContent;
-        elements.randomize(document).click();
         secondNoteAfter = elements.box2(document).textContent;
       }
       const notesBefore = `${firstNoteBefore}/${secondNoteBefore}`;
       const notesAfter = `${firstNoteAfter}/${secondNoteAfter}`;
+
       expect(notesBefore).not.toEqual(notesAfter);
     });
   });
