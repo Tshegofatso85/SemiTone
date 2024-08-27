@@ -164,6 +164,9 @@ function spinRandomNotes(buddy) {
   }
 
   const interval = setInterval(() => {
+    elements.checkAnswer(document).disabled = true;
+    elements.answer(document).disabled = true;
+    elements.giveUp(document).disabled = true;
     buddy.randomizeCurrentNotes();
     displayRandomNotes(buddy);
 
@@ -173,6 +176,9 @@ function spinRandomNotes(buddy) {
       clearInterval(interval);
       buddy.randomizeCurrentNotes();
       displayRandomNotes(buddy);
+      elements.checkAnswer(document).disabled = false;
+      elements.answer(document).disabled = false;
+      elements.giveUp(document).disabled = false;
 
       if (spinSound) {
         spinSound.pause();

@@ -27,9 +27,6 @@ const initialize = () => {
 
 const randomizeListener = () => {
   elements.randomize(document).addEventListener("click", () => {
-    elements.checkAnswer(document).disabled = false;
-    elements.answer(document).disabled = false;
-    elements.giveUp(document).disabled = false;
     elements.giveUpMessage(document).textContent = "";
     elements.displayMessage(document).classList.remove("correct");
     elements.displayMessage(document).classList.remove("incorrect");
