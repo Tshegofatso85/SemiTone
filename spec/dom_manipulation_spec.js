@@ -48,6 +48,7 @@ describe("Dom Manipulation", () => {
 
     it("should be different notes after clicking randomize", () => {
       elements.randomize(document).click();
+      jasmine.clock().tick(1000);
       let firstNoteAfter = elements.box1(document).textContent;
       let secondNoteAfter = elements.box2(document).textContent;
       if (
@@ -56,6 +57,7 @@ describe("Dom Manipulation", () => {
       ) {
         elements.randomize(document).click();
         firstNoteAfter = elements.box1(document).textContent;
+        elements.randomize(document).click();
         secondNoteAfter = elements.box2(document).textContent;
       }
       const notesBefore = `${firstNoteBefore}/${secondNoteBefore}`;

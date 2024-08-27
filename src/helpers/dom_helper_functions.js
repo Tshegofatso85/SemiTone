@@ -148,6 +148,24 @@ function correctDistanceMessage(distance) {
   message.textContent = `The Clockwise distance (From ${box1} right to ${box2}) is ${clockwiseDistance} semitones and the Anti-Clockwise distance (From ${box1} left to ${box2}) is ${antiClockwiseDistance} semitones.`;
 }
 
+function spinRandomNotes(buddy) {
+  const spinCount = 15;
+  let currentSpin = 0;
+
+  const interval = setInterval(() => {
+    buddy.randomizeCurrentNotes();
+    displayRandomNotes(buddy);
+
+    currentSpin++;
+
+    if (currentSpin === spinCount) {
+      clearInterval(interval);
+      buddy.randomizeCurrentNotes();
+      displayRandomNotes(buddy);
+    }
+  }, 100);
+}
+
 module.exports = {
   displayRandomNotes,
   displayMessage,
@@ -158,4 +176,5 @@ module.exports = {
   giveUpSemitoneArray,
   removeAllHighlightsInArray,
   correctDistanceMessage,
+  spinRandomNotes,
 };

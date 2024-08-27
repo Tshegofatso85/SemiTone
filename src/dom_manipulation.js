@@ -10,6 +10,7 @@ const {
   giveUpSemitoneArray,
   removeAllHighlightsInArray,
   correctDistanceMessage,
+  spinRandomNotes,
 } = require("./helpers/dom_helper_functions");
 
 const buddy = new JamBuddy();
@@ -33,8 +34,7 @@ const randomizeListener = () => {
     elements.displayMessage(document).classList.remove("correct");
     elements.displayMessage(document).classList.remove("incorrect");
     elements.displayMessage(document).textContent = "";
-    buddy.randomizeCurrentNotes();
-    displayRandomNotes(buddy);
+    spinRandomNotes(buddy);
     removeAllHighlightsInArray();
     hideSemitoneArray();
     clearMessage();
