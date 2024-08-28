@@ -1,10 +1,13 @@
+require("./dom_imports");
 const { theNoteCircle } = require("../src/helpers/jam_buddy_helper_object");
-const { document } = require("./dom_imports");
 const { initialize, buddy } = require("../src/dom_manipulation");
 const { elements } = require("../src/helpers/dom_helper_object");
 
 describe("Dom Manipulation", () => {
   beforeEach(() => {
+    spyOn(window.HTMLMediaElement.prototype, "play").and.callFake(() => {
+      return Promise.resolve();
+    });
     jasmine.clock().install();
   });
 
