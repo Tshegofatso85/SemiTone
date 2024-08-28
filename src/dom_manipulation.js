@@ -55,9 +55,9 @@ const answerListener = () => {
 
     const answerSound =
       typeof Audio !== "undefined" && isCorrect
-        ? new Audio("../Music & Sounds/correct-ans.mp3")
+        ? new Audio("../Music&Sounds/correct-ans.mp3")
         : typeof Audio !== "undefined" && !isCorrect
-        ? new Audio("../Music & Sounds/incorrect-ans.mp3")
+        ? new Audio("../Music&Sounds/incorrect-ans.mp3")
         : null;
 
     if (isCorrect) {

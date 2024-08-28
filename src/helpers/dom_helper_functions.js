@@ -152,7 +152,7 @@ function correctDistanceMessage(distance) {
 function spinRandomNotes(buddy) {
   const spinSound =
     typeof Audio !== "undefined"
-      ? new Audio("../Music & Sounds/spinning-reel.mp3")
+      ? new Audio("../Music&Sounds/spinning-reel.mp3")
       : null;
 
   const spinCount = 15;
