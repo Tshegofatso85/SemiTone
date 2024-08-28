@@ -72,7 +72,7 @@ const giveUpListener = () => {
     elements.answer(document).disabled = true;
     elements.randomize(document).disabled = true;
     elements.giveUp(document).disabled = true;
-    elements.restart(document).disabled = false;
+    elements.restart(document).disabled = true;
     elements.displayMessage(document).classList.add("incorrect");
     elements.displayMessage(document).textContent = "Gave Up!";
     elements.box1(document).classList.add("gaveUpHighlight");
@@ -81,6 +81,9 @@ const giveUpListener = () => {
     showSemitoneArray();
     correctDistanceMessage();
     elements.gameOverSound(document).play();
+    setTimeout(() => {
+      elements.restart(document).disabled = false;
+    }, 2000);
   });
 };
 

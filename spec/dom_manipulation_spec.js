@@ -262,6 +262,7 @@ describe("Dom Manipulation", () => {
 
     it("should reset streak to 0", () => {
       elements.giveUp(document).click();
+      jasmine.clock().tick(2000);
       elements.restart(document).click();
       expect(elements.streak(document).textContent).toBe("Streak: 0");
     });
