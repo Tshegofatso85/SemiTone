@@ -150,18 +150,11 @@ function correctDistanceMessage(distance) {
 }
 
 function spinRandomNotes(buddy) {
-  const spinSound =
-    typeof Audio !== "undefined"
-      ? new Audio("../Music&Sounds/spinning-reel.mp3")
-      : null;
-
   const spinCount = 15;
   let currentSpin = 0;
 
-  if (spinSound) {
-    spinSound.currentTime = 2;
-    spinSound.play();
-  }
+  elements.spinningReel(document).currentTime = 2;
+  elements.spinningReel(document).play();
 
   const interval = setInterval(() => {
     elements.checkAnswer(document).disabled = true;
@@ -180,10 +173,8 @@ function spinRandomNotes(buddy) {
       elements.answer(document).disabled = false;
       elements.giveUp(document).disabled = false;
 
-      if (spinSound) {
-        spinSound.pause();
-        spinSound.currentTime = 2;
-      }
+      elements.spinningReel(document).pause();
+      elements.spinningReel(document).currentTime = 2;
     }
   }, 100);
 }
