@@ -91,7 +91,7 @@ const giveUpListener = () => {
 
     const gameOverSound =
       typeof Audio !== "undefined"
-        ? new Audio("../Music & Sounds/game-over.mp3")
+        ? new Audio("../Music&Sounds/game-over.mp3")
         : null;
 
     if (gameOverSound) {
@@ -126,7 +126,7 @@ const restartListener = () => {
 
     const restartSound =
       typeof Audio !== "undefined"
-        ? new Audio("../Music & Sounds/game-start.mp3")
+        ? new Audio("../Music&Sounds/game-start.mp3")
         : null;
 
     if (restartSound) {
